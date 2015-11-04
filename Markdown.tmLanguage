@@ -93,6 +93,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#math-fenced</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#list-paragraph</string>
 				</dict>
 			</array>
@@ -120,6 +124,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#math-fenced</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#list-paragraph</string>
 				</dict>
 			</array>
@@ -128,6 +136,10 @@
 			<key>include</key>
 			<string>#fenced-code-blocks</string>
 		</dict>
+				<dict>
+					<key>include</key>
+					<string>#math-fenced</string>
+				</dict>
 		<dict>
 			<key>begin</key>
 			<string>^(?=&lt;(p|div|h[1-6]|blockquote|pre|table|dl|ol|ul|noscript|form|fieldset|iframe|math|ins|del)\b[^&gt;]*&gt;)(?!.*?&lt;/\1&gt;)</string>
@@ -518,6 +530,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#math</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#raw</string>
 				</dict>
 				<dict>
@@ -646,6 +662,10 @@
 				<dict>
 					<key>include</key>
 					<string>#bracket</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#math</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -780,6 +800,10 @@
 				<dict>
 					<key>include</key>
 					<string>#bracket</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#math</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -1029,6 +1053,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#math</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#raw</string>
 				</dict>
 				<dict>
@@ -1174,6 +1202,10 @@
 				<dict>
 					<key>include</key>
 					<string>#bracket</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#math</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -1488,9 +1520,54 @@
 							<key>include</key>
 							<string>#fenced-code-blocks</string>
 						</dict>
+						<dict>
+							<key>include</key>
+							<string>#math-fenced</string>
+						</dict>
 					</array>
 				</dict>
 			</array>
+		</dict>
+		<key>math</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>text.tex.latex string.other.math.tex punctuation.definition.string.begin.tex</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>text.tex.latex string.other.math.tex markup.math.inline.content.markdown</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>text.tex.latex string.other.math.tex punctuation.definition.string.end.tex</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(\$+)((?:[^\$]|(?!(?&lt;!\$)\1(?!\$))\$)*+)(\1)</string>
+			<key>name</key>
+			<string>markup.math.inline.markdown</string>
+		</dict>
+		<key>math-fenced</key>
+		<dict>
+		    <key>begin</key>
+		    <string>^(\s*[\$]{2,})\s*$</string>
+		    <key>end</key>
+		    <string>^(\1)\n</string>
+		    <key>name</key>
+		    <string>markup.math.block.markdown markup.math.block.fenced.markdown</string>
+		    <key>patterns</key>
+		    <array>
+		        <dict>
+		            <key>include</key>
+		            <string>text.tex.latex</string>
+		        </dict>
+		    </array>
 		</dict>
 		<key>raw</key>
 		<dict>
@@ -1537,6 +1614,22 @@
 		        <dict>
 		            <key>include</key>
 		            <string>text.html.basic</string>
+		        </dict>
+		    </array>
+		</dict>
+		<key>fenced-latex</key>
+		<dict>
+		    <key>begin</key>
+		    <string>^(\s*[`~]{3,})\s*(latex|tex)\s*$</string>
+		    <key>end</key>
+		    <string>^(\1)\n</string>
+		    <key>name</key>
+		    <string>markup.raw.block.markdown markup.raw.block.fenced.markdown</string>
+		    <key>patterns</key>
+		    <array>
+		        <dict>
+		            <key>include</key>
+		            <string>text.tex.latex</string>
 		        </dict>
 		    </array>
 		</dict>
@@ -1916,6 +2009,10 @@
 				<dict>
 					<key>include</key>
 					<string>#fenced-diff</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#fenced-latex</string>
 				</dict>
 				<dict>
 					<key>include</key>
