@@ -1561,13 +1561,13 @@
 		    <string>^(\1)\n</string>
 		    <key>name</key>
 		    <string>markup.math.block.markdown markup.math.block.fenced.markdown</string>
-		    <key>patterns</key>
+		    <!-- <key>patterns</key>
 		    <array>
 		        <dict>
 		            <key>include</key>
 		            <string>text.tex.latex</string>
 		        </dict>
-		    </array>
+		    </array> -->
 		</dict>
 		<key>raw</key>
 		<dict>
